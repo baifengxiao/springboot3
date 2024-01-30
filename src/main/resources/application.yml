@@ -1,18 +1,20 @@
-spring:
-  jdbc:
-    datasource:
-      driverClassName: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/mybatis-example
-      username: root
-      password: root
-  profiles:
-    active: dev
-
-# web相关的配置
-# https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html#appendix.application-properties.server
 server:
-  # 端口号设置
   port: 80
-  # 项目根路径
   servlet:
-    context-path: /boot
+    context-path: /
+spring:
+  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+
+    url: jdbc:mysql:///mybatis-example
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  configuration:  # setting配置
+    auto-mapping-behavior: full
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+  type-aliases-package: com.this0.springboot3.pojo # 配置别名
+  mapper-locations: classpath:/mapper/*.xml # mapperxml位置
