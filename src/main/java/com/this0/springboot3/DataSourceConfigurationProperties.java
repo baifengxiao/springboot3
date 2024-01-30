@@ -1,24 +1,16 @@
 package com.this0.springboot3;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
-
 @Component
-public class DataSourceProperties {
+@ConfigurationProperties(prefix = "spring.jdbc.datasource")
+public class DataSourceConfigurationProperties {
 
-    @Value("${spring.jdbc.datasource.driverClassName}")
     private String driverClassName;
-
-    @Value("${spring.jdbc.datasource.url}")
     private String url;
-
-    @Value("${spring.jdbc.datasource.username}")
     private String username;
-
-    @Value("${spring.jdbc.datasource.password}")
     private String password;
 
-    // 生成get set 和 toString方法
     public String getDriverClassName() {
         return driverClassName;
     }
@@ -53,7 +45,7 @@ public class DataSourceProperties {
 
     @Override
     public String toString() {
-        return "DataSourceProperties{" +
+        return "DataSourceConfigurationProperties{" +
                 "driverClassName='" + driverClassName + '\'' +
                 ", url='" + url + '\'' +
                 ", username='" + username + '\'' +
