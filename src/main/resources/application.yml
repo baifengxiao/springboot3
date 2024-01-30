@@ -5,6 +5,8 @@ spring:
       url: jdbc:mysql://localhost:3306/mybatis-example
       username: root
       password: root
+  profiles:
+    active: dev
 
 server:
   port: 80
