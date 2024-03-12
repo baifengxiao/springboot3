@@ -1,7 +1,7 @@
 # 连接池配置
 spring:
   datasource:
-#    type: com.alibaba.druid.pool.DruidDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
 
     url: jdbc:mysql:///mybatis-example
     username: root
